@@ -38,3 +38,10 @@ Thumbs.db
 
 # dotCover
 *.dotCover
+
+# other
+*/bin/*
+*/obj/*
+*.user
+*/Bin/*
+*.bak
