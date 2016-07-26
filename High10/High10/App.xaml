@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+                        xmlns:custom="clr-namespace:High10.CustomControls;"
+                        x:Class="High10.App">
+  <prism:PrismApplication.Resources>
+    <ResourceDictionary>
+      <Color x:Key="ColorAppBackground">#FFFFFF</Color>
+      <Color x:Key="ColorDarkText">#000000</Color>
+      <Color x:Key="ColorLightText">#FFFFFF</Color>
+
+      <Color x:Key="ColorDarkGreen">#005B29</Color>
+      <Color x:Key="ColorMediumGreen">#007E39</Color>
+      <Color x:Key="ColorLightGreen">#00FA12</Color>
+
+      <Color x:Key="ColorMediumOrange">#FF7400</Color>
+      <Color x:Key="ColorMediumPink">#FF0090</Color>
+
+      <Color x:Key="ColorLightGray">#CCCCCC</Color>
+
+      <custom:CustomImageSource x:Key="ImageLogoLarge" ImagePath="High10.Images.Logo_Large.png" />
+      
+    </ResourceDictionary>
+  </prism:PrismApplication.Resources>
+</prism:PrismApplication>

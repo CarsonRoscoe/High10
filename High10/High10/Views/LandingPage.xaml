@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="High10.Views.LandingPage">
+
+
+  <Grid x:Name="_contentGrid" BackgroundColor="{StaticResource ColorAppBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+    <Image Grid.Row="0" Source="{StaticResource ImageLogoLarge}" Aspect="AspectFill" />
+  </Grid>
+</ContentPage>
