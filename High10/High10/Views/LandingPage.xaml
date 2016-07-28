@@ -5,7 +5,6 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="High10.Views.LandingPage">
 
-
   <Grid x:Name="_contentGrid" BackgroundColor="{StaticResource ColorAppBackground}">
     <Grid.RowDefinitions>
       <RowDefinition Height="1*" />

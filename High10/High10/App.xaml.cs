@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Microsoft.Practices.Unity;
 using Prism.Events;
 using High10.Views;
+using High10.Interfaces;
+using High10.DataProvider;
 
 namespace High10 {
     public partial class App : PrismApplication {
@@ -12,7 +14,10 @@ namespace High10 {
         }
 
         protected override void RegisterTypes() {
-            //Container.RegisterType<ILoginDataStatusProvider, LoginDataStatusProvider>();
+            Container.RegisterType<ILoginHelper, LoginHelper>();
+            Container.RegisterType<IRestHelper, RestHelper>();
+            Container.RegisterType<IDatabaseHelper, DatabaseHelper>();
+            Container.RegisterInstance(typeof(ModelHelper), new ModelHelper(Container.Resolve<IRestHelper>(), Container.Resolve<IDatabaseHelper>(), Container.Resolve<ILoginHelper>()));
 
             Container.RegisterTypeForNavigation<LandingPage>();
             Container.RegisterTypeForNavigation<MasterDetailContainerPage>();

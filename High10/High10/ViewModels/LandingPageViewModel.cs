@@ -1,4 +1,5 @@
 ﻿using High10.ExtensionMethods;
+using High10.Interfaces;
 using High10.Views;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -11,6 +12,7 @@ using Xamarin.Forms;
 namespace High10.ViewModels {
     public class LandingPageViewModel : BindableBase {
         INavigationService _navigationService;
+        IModelHelper _modelHelper;
         public Command LogInButtonCommand { get; set; }
         public Command RegisterButtonCommand { get; set; }
         public Command ToLogInPageButtonCommand { get; set; }
@@ -34,7 +36,7 @@ namespace High10.ViewModels {
             set { SetProperty(ref _landingPageType, value); }
         }
 
-        public LandingPageViewModel(INavigationService navigationService) {
+        public LandingPageViewModel(INavigationService navigationService, IModelHelper modelHelper) {
             _navigationService = navigationService;
             LogInButtonCommand = new Command(OnLogInButtonClicked);
             RegisterButtonCommand = new Command(OnRegisterUpButtonClicked);
@@ -47,7 +49,13 @@ namespace High10.ViewModels {
             await _navigationService.NavigateToAsync<MessagesPage>(animated: false);
         }
 
-        void OnRegisterUpButtonClicked() {
+        async void OnRegisterUpButtonClicked() {
+            var token = string.Empty;
+            var friends = await _modelHelper.GetAllFriends();
+            var friend = friends.FirstOrDefault();
+            var pictures = await _modelHelper.GetAllPictures(friend);
+            var picture = pictures.FirstOrDefault();
+            var hit = true;
         }
 
         void OnToLogInPageButtonClicked() {

@@ -38,14 +38,25 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BusinessModels\GPSLocation.cs" />
+    <Compile Include="BusinessModels\Picture.cs" />
+    <Compile Include="BusinessModels\User.cs" />
     <Compile Include="CustomControls\CustomImageSource.cs" />
     <Compile Include="CustomControls\LandingPageLoggedOut.cs" />
     <Compile Include="CustomControls\LandingPageLogIn.cs" />
     <Compile Include="CustomControls\LandingPageRegister.cs" />
+    <Compile Include="DataProvider\DatabaseHelper.cs" />
+    <Compile Include="DataProvider\LoginHelper.cs" />
+    <Compile Include="DataProvider\ModelHelper.cs" />
+    <Compile Include="DataProvider\RestHelper.cs" />
     <Compile Include="ExtensionMethods\PrismExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\RandomExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\XamarinFormsExtensions.cs" />
+    <Compile Include="Interfaces\IDatabaseHelper.cs" />
+    <Compile Include="Interfaces\ILoginHelper.cs" />
+    <Compile Include="Interfaces\IModelHelper.cs" />
+    <Compile Include="Interfaces\IRestHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LandingPageViewModel.cs" />
     <Compile Include="ViewModels\MasterDetailContainerPageViewModel.cs" />
@@ -99,9 +110,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessModels\" />
     <Folder Include="Converters\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="ViewCells\" />
   </ItemGroup>
   <ItemGroup>
