@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace High10.BusinessModels {
     public class GPSLocation {
-        long Latitude { get; set; }
-        long Longitude { get; set; }
+        public long Latitude { get; set; }
+        public long Longitude { get; set; }
     }
 }

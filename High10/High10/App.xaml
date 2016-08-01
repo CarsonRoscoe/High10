@@ -20,6 +20,13 @@
       <Color x:Key="ColorLightGray">#CCCCCC</Color>
 
       <custom:CustomImageSource x:Key="ImageLogoLarge" ImagePath="High10.Images.Logo_Large.png" />
+      <custom:CustomImageSource x:Key="ImageLogoSmall" ImagePath="High10.Images.Logo_Small.png" />
+      <custom:CustomImageSource x:Key="ImageNavigationWhite" ImagePath="High10.Images.Navigation_White.png" />
+      <custom:CustomImageSource x:Key="ImageCameraWhite" ImagePath="High10.Images.Camera_White.png" />
+      <custom:CustomImageSource x:Key="ImageCameraWhiteOrangeBackground" ImagePath="High10.Images.Camera_White_OrangeBackground.png" />
+      <custom:CustomImageSource x:Key="ImageCameraOrangeWhiteBackground" ImagePath="High10.Images.Camera_Orange_WhiteBackground.png" />
+      <custom:CustomImageSource x:Key="ImageMessageWhiteGreenBackground" ImagePath="High10.Images.Message_White_GreenBackground.png" />
+      <custom:CustomImageSource x:Key="ImageMessageGreenWhiteBackground" ImagePath="High10.Images.Message_Green_WhiteBackground.png" />
       
     </ResourceDictionary>
   </prism:PrismApplication.Resources>

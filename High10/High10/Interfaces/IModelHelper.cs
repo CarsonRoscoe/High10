@@ -6,10 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace High10.Interfaces {
-    public interface IModelHelper {
-        Task<List<User>> GetAllFriends();
-        Task<List<Picture>> GetAllPictures(User friend);
-        Task<List<Picture>> GetAllPictures(string hashtag);
-        Task<List<Picture>> GetAllPictures(GPSLocation gpsLocation);
-    }
+  public interface IModelHelper {
+    //Personal
+    Task<List<User>> GetAllFriends();
+    Task LoadMessagingHistory();
+
+    //Stories
+    Task<List<Picture>> GetAllPictures( User friend );
+    Task<List<Picture>> GetAllPictures( string hashtag );
+    Task<List<Picture>> GetAllPictures( GPSLocation gpsLocation );
+
+    //Chat history
+    Task<List<Tuple<User, IMessage>>> GetLastMessageSentHistory();
+    Task<List<TextMessage>> GetMessageHistory( User friend );
+    Task<List<Tuple<User, List<TextMessage>>>> GetMessageHistory();
+    Task<IMessage> GetLastMessage( User friend );
+  }
 }
