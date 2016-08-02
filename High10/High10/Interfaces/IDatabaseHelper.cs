@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace High10.Interfaces {
   public interface IDatabaseHelper {
-    long ID { get; }
+    long ID { get; set; }
 
     //Personal account
     Task<long> LastImageExchangeByUser( long ID );
     Task<List<User>> GetAllFriends();
+    Task<User> GetSelf();
+    void SetSelf( User user );
 
     //Get texts/pictures
     Task<List<TextMessage>> GetTextMessageHistory( User friend, int rows = 50 );

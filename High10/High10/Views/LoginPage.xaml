@@ -4,7 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="High10.Views.LoginPage">
-  <Grid x:Name="_contentGrid" BackgroundColor="{StaticResource ColorAppBackground}">
+  <Grid x:Name="_contentGrid" BackgroundColor="White">
     <Grid.RowDefinitions>
       <RowDefinition Height="1*" />
       <RowDefinition Height="1*" />

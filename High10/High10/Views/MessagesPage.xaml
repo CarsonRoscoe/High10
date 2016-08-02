@@ -2,30 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:customcontrols="clr-namespace:High10.CustomControls;"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="High10.Views.MessagesPage">
   <StackLayout Spacing="0">
     <!--Navigation Bar-->
-    <Grid HeightRequest="50" BackgroundColor="{StaticResource ColorMediumGreen}" >
+    <Grid HeightRequest="50" MinimumHeightRequest="50" BackgroundColor="{StaticResource ColorMediumGreen}" >
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="50" />
         <ColumnDefinition />
         <ColumnDefinition Width="50" />
       </Grid.ColumnDefinitions>
-      <Grid BackgroundColor="{StaticResource ColorDarkGreen}" Padding="8" Grid.Column="0"><Image Source="{StaticResource ImageNavigationWhite}"/></Grid>
+      <Grid BackgroundColor="{StaticResource ColorDarkGreen}" Padding="8" Grid.Column="0">
+        <customcontrols:ImageButton ImageSource="{StaticResource ImageNavigationWhite}" Command="{Binding ToggleMasterCommand}" />
+      </Grid>
       <Image Grid.Column="1" Source="{StaticResource ImageLogoSmall}"/>
       <Frame BackgroundColor="Transparent" Padding="8" Grid.Column="2"><Image Source="{StaticResource ImageCameraWhite}"/></Frame>
     </Grid>
     
     <!--Content-->
-    <ListView BackgroundColor="White" ItemsSource="{Binding MessageHistoryViewModels}">
+    <ListView BackgroundColor="{StaticResource ColorMediumGreen}" ItemsSource="{Binding MessageHistoryViewModels}" SelectedItem="{Binding SelectedMessageHistoryViewModel}" RowHeight="50">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Orientation="Horizontal" BackgroundColor="White">
-              <Image Source="{Binding ImageSource}" WidthRequest="50" />
-              <Label Text="{Binding Name}" FontSize="Medium" />
-            </StackLayout>
+            <Grid BackgroundColor="White" HeightRequest="50">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition />
+              </Grid.ColumnDefinitions>
+              <StackLayout Grid.Column="0" BackgroundColor="{Binding OutlineColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+                <StackLayout BackgroundColor="{Binding ForegroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10" Margin="0">
+                  <Image Source="{Binding ImageSource}" />
+                </StackLayout>
+              </StackLayout>
+              <Label Grid.Column="1" Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" VerticalOptions="Center" />
+            </Grid>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>

@@ -9,6 +9,7 @@ using High10.BusinessModels;
 namespace High10.DataProvider {
   public class DatabaseHelper : IDatabaseHelper {
     List<User> m_friends;
+    User m_self;
     Dictionary<User, List<TextMessage>> m_textMessages;
     Dictionary<long, long> m_lastMessageSentByUserID;
     Dictionary<User, List<Picture>> m_pictureMessages;
@@ -26,7 +27,7 @@ namespace High10.DataProvider {
       m_gpsStory = new Dictionary<GPSLocation, List<Picture>>();
     }
 
-    public long ID { get; private set; }
+    public long ID { get; set; }
 
     public void AddFriends( List<User> list ) {
       if (list != null ) {
@@ -168,6 +169,14 @@ namespace High10.DataProvider {
         return m_hashtagStory[hashtag].LastOrDefault()?.Timestamp ?? 0;
       }
       return 0;
+    }
+
+    public async Task<User> GetSelf() {
+      return m_self;
+    }
+
+    public void SetSelf( User user ) {
+      m_self = user;
     }
   }
 }

@@ -10,6 +10,7 @@ namespace High10.Interfaces {
     //Personal
     Task<List<User>> GetAllFriends();
     Task LoadMessagingHistory();
+    Task<User> GetSelf();
 
     //Stories
     Task<List<Picture>> GetAllPictures( User friend );
@@ -19,6 +20,8 @@ namespace High10.Interfaces {
     //Chat history
     Task<List<Tuple<User, IMessage>>> GetLastMessageSentHistory();
     Task<List<TextMessage>> GetMessageHistory( User friend );
+    Task<List<Picture>> GetPictureMessageHistory( User friend );
+    Task<List<Tuple<User, List<Picture>>>> GetPictureMessageHistory();
     Task<List<Tuple<User, List<TextMessage>>>> GetMessageHistory();
     Task<IMessage> GetLastMessage( User friend );
   }

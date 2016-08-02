@@ -4,6 +4,7 @@ namespace High10.Views {
   public partial class MessagesPage : ContentPage {
     public MessagesPage() {
       InitializeComponent();
+      NavigationPage.SetHasNavigationBar( this, false );
     }
   }
 }

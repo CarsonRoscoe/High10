@@ -6,7 +6,6 @@
                         x:Class="High10.App">
   <prism:PrismApplication.Resources>
     <ResourceDictionary>
-      <Color x:Key="ColorAppBackground">#FFFFFF</Color>
       <Color x:Key="ColorDarkText">#000000</Color>
       <Color x:Key="ColorLightText">#FFFFFF</Color>
 
@@ -17,16 +16,20 @@
       <Color x:Key="ColorMediumOrange">#FF7400</Color>
       <Color x:Key="ColorMediumPink">#FF0090</Color>
 
+      <Color x:Key="ColorDarkGray">#222222</Color>
       <Color x:Key="ColorLightGray">#CCCCCC</Color>
 
       <custom:CustomImageSource x:Key="ImageLogoLarge" ImagePath="High10.Images.Logo_Large.png" />
       <custom:CustomImageSource x:Key="ImageLogoSmall" ImagePath="High10.Images.Logo_Small.png" />
       <custom:CustomImageSource x:Key="ImageNavigationWhite" ImagePath="High10.Images.Navigation_White.png" />
       <custom:CustomImageSource x:Key="ImageCameraWhite" ImagePath="High10.Images.Camera_White.png" />
-      <custom:CustomImageSource x:Key="ImageCameraWhiteOrangeBackground" ImagePath="High10.Images.Camera_White_OrangeBackground.png" />
-      <custom:CustomImageSource x:Key="ImageCameraOrangeWhiteBackground" ImagePath="High10.Images.Camera_Orange_WhiteBackground.png" />
-      <custom:CustomImageSource x:Key="ImageMessageWhiteGreenBackground" ImagePath="High10.Images.Message_White_GreenBackground.png" />
-      <custom:CustomImageSource x:Key="ImageMessageGreenWhiteBackground" ImagePath="High10.Images.Message_Green_WhiteBackground.png" />
+      <custom:CustomImageSource x:Key="ImageCameraOrange" ImagePath="High10.Images.Camera_Orange.png" />
+      <custom:CustomImageSource x:Key="ImageMessageWhite" ImagePath="High10.Images.Message_White.png" />
+      <custom:CustomImageSource x:Key="ImageMessageGreen" ImagePath="High10.Images.Message_Green.png" />
+      <custom:CustomImageSource x:Key="ImageContactsWhite" ImagePath="High10.Images.Contacts_White.png" />
+      <custom:CustomImageSource x:Key="ImageSettingsWhite" ImagePath="High10.Images.Settings_White.png" />
+      <custom:CustomImageSource x:Key="ImageInfoWhite" ImagePath="High10.Images.Info_White.png" />
+      <custom:CustomImageSource x:Key="ImageTimelineWhite" ImagePath="High10.Images.Timeline_White.png" />
       
     </ResourceDictionary>
   </prism:PrismApplication.Resources>

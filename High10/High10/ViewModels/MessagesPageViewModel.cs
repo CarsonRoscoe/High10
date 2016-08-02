@@ -8,15 +8,10 @@ using System.Collections.ObjectModel;
 using Prism.Navigation;
 
 namespace High10.ViewModels {
-  public class MessagesPageViewModel : BindableBase, INavigationAware {
+  public class MessagesPageViewModel : ActionBarBasePageViewModel, INavigationAware {
     ModelHelper m_modelHelper;
-    private ObservableCollection<MessageHistoryViewModel> _messageHistoryViewModels;
-    public ObservableCollection<MessageHistoryViewModel> MessageHistoryViewModels {
-      get { return _messageHistoryViewModels; }
-      set { SetProperty( ref _messageHistoryViewModels, value ); }
-    }
 
-    public MessagesPageViewModel( ModelHelper modelHelper ) {
+    public MessagesPageViewModel( ModelHelper modelHelper ) : base() {
       m_modelHelper = modelHelper;
       MessageHistoryViewModels = new ObservableCollection<MessageHistoryViewModel>();
     }
@@ -33,7 +28,20 @@ namespace High10.ViewModels {
     }
 
     public void OnNavigatedTo( NavigationParameters parameters ) {
+      //Load data from database
+      //start thread
       LoadMessageHistoryViewModels();
+    }
+
+    private ObservableCollection<MessageHistoryViewModel> _messageHistoryViewModels;
+    public ObservableCollection<MessageHistoryViewModel> MessageHistoryViewModels {
+      get { return _messageHistoryViewModels; }
+      set { SetProperty( ref _messageHistoryViewModels, value ); }
+    }
+
+    public MessageHistoryViewModel SelectedMessageHistoryViewModel {
+      get { return null; }
+      set { OnPropertyChanged(); }
     }
 
     public void OnNavigatedFrom( NavigationParameters parameters ) { }

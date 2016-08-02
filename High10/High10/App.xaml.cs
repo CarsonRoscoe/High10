@@ -27,22 +27,26 @@ namespace High10 {
       Container.RegisterTypeForNavigation<MasterDetailContainerPage>();
       Container.RegisterTypeForNavigation<MessagesPage>();
       Container.RegisterTypeForNavigation<LoginPage>();
+      Container.RegisterTypeForNavigation<MasterDetailNavigationPage>();
     }
 
     public static class Colors {
-      public static Color AppBackground { get { return GetColor(); } }
-      public static Color LightGray { get { return GetColor(); } }
+      public static Color DarkText { get { return GetColor(); } }
+      public static Color LightText { get { return GetColor(); } }
+      public static Color DarkGreen { get { return GetColor(); } }
+      public static Color MediumGreen { get { return GetColor(); } }
+      public static Color LightGreen { get { return GetColor(); } }
+      public static Color MediumOrange { get { return GetColor(); } }
+      public static Color MediumPink { get { return GetColor(); } }
       public static Color DarkGray { get { return GetColor(); } }
-      public static Color LightOrange { get { return GetColor(); } }
-      public static Color DarkOrange { get { return GetColor(); } }
-      public static Color LightRed { get { return GetColor(); } }
+      public static Color LightGray { get { return GetColor(); } }
 
       private static Color GetColor( [CallerMemberName] string caller = null ) {
         if ( m_colors == null ) {
           LoadColors();
         }
         Color colorResult = Color.Default;
-        m_colors.TryGetValue( caller, out colorResult );
+        m_colors.TryGetValue( string.Format("Color{0}", caller), out colorResult );
         return colorResult;
       }
 
@@ -56,7 +60,7 @@ namespace High10 {
           }
         }
         foreach ( var property in typeof( Colors ).GetRuntimeProperties() ) {
-          if ( !m_colors.ContainsKey( property.Name ) ) {
+          if ( !m_colors.ContainsKey( string.Format("Color{0}", property.Name ) ) ) {
             throw new Exception( string.Format( "Color {0} not found in Resources", property.Name ) );
           }
         }
@@ -64,34 +68,37 @@ namespace High10 {
     }
 
     public static class Images {
-      public static ImageSource ImageLogoLarge { get { return GetImage(); } }
-      public static ImageSource ImageLogoSmall { get { return GetImage(); } }
-      public static ImageSource ImageNavigationWhite { get { return GetImage(); } }
-      public static ImageSource ImageCameraWhite { get { return GetImage(); } }
-      public static ImageSource ImageCameraWhiteOrangeBackground { get { return GetImage(); } }
-      public static ImageSource ImageCameraOrangeWhiteBackground { get { return GetImage(); } }
-      public static ImageSource ImageMessageOrangeWhiteBackground { get { return GetImage(); } }
-      public static ImageSource ImageMessageWhiteOrangeBackground { get { return GetImage(); } }
+      public static CustomImageSource ImageLogoLarge { get { return GetImage(); } }
+      public static CustomImageSource ImageLogoSmall { get { return GetImage(); } }
+      public static CustomImageSource ImageNavigationWhite { get { return GetImage(); } }
+      public static CustomImageSource ImageCameraWhite { get { return GetImage(); } }
+      public static CustomImageSource ImageCameraOrange { get { return GetImage(); } }
+      public static CustomImageSource ImageMessageGreen { get { return GetImage(); } }
+      public static CustomImageSource ImageMessageWhite { get { return GetImage(); } }
+      public static CustomImageSource ImageContactsWhite { get { return GetImage(); } }
+      public static CustomImageSource ImageSettingsWhite { get { return GetImage(); } }
+      public static CustomImageSource ImageInfoWhite { get { return GetImage(); } }
+      public static CustomImageSource ImageTimelineWhite { get { return GetImage(); } }
 
-      private static ImageSource GetImage( [CallerMemberName] string caller = null ) {
+      private static CustomImageSource GetImage( [CallerMemberName] string caller = null ) {
         if ( m_images == null ) {
           LoadImages();
         }
-        ImageSource imageResult = m_images[nameof( ImageLogoSmall )];
+        CustomImageSource imageResult = m_images[nameof( ImageLogoSmall )];
         m_images.TryGetValue( caller, out imageResult );
         return imageResult;
       }
 
-      private static Dictionary<string, ImageSource> m_images;
+      private static Dictionary<string, CustomImageSource> m_images;
 
       private static void LoadImages() {
-        m_images = new Dictionary<string, ImageSource>();
+        m_images = new Dictionary<string, CustomImageSource>();
         foreach ( var pair in Current.Resources ) {
           if ( pair.Value is CustomImageSource ) {
-            m_images.Add( pair.Key, (ImageSource)pair.Value );
+            m_images.Add( pair.Key, (CustomImageSource)pair.Value );
           }
         }
-        foreach ( var property in typeof( ImageSource ).GetRuntimeProperties() ) {
+        foreach ( var property in typeof( Images ).GetRuntimeProperties() ) {
           if ( !m_images.ContainsKey( property.Name ) ) {
             throw new Exception( string.Format( "Image {0} not found in Resources", property.Name ) );
           }

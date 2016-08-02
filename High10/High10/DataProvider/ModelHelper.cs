@@ -16,6 +16,7 @@ namespace High10.DataProvider {
       m_restHelper = restHelper;
       m_databaseHelper = databaseHelper;
       m_loginHelper = loginHelper;
+      m_databaseHelper.ID = 0;
     }
 
     public async Task<List<User>> GetAllFriends() {
@@ -72,6 +73,22 @@ namespace High10.DataProvider {
       return messageHistory;
     }
 
+    public async Task<List<Picture>> GetPictureMessageHistory( User friend ) {
+      if ( (await m_databaseHelper.GetPictureMessageHistory( friend )).Count == 0 ) {
+        m_databaseHelper.AddPictureMessages( friend, await m_restHelper.GetPictureMessageHistoryByUserID( m_loginHelper.Token, friend.ID ) );
+      }
+      return await m_databaseHelper.GetPictureMessageHistory( friend );
+    }
+
+    public async Task<List<Tuple<User, List<Picture>>>> GetPictureMessageHistory() {
+      var messageHistory = new List<Tuple<User, List<Picture>>>();
+      foreach ( var user in await GetAllFriends() ) {
+        var friendsHistory = await GetPictureMessageHistory( user );
+        messageHistory.Add( new Tuple<User, List<Picture>>( user, friendsHistory ) );
+      }
+      return messageHistory;
+    }
+
     public async Task<List<Tuple<User, IMessage>>> GetLastMessageSentHistory() {
       var messageHistory = new List<Tuple<User, IMessage>>();
       foreach ( var user in await GetAllFriends() ) {
@@ -97,6 +114,16 @@ namespace High10.DataProvider {
 
     public async Task LoadMessagingHistory() {
       await GetMessageHistory();
+      await GetPictureMessageHistory();
+    }
+
+    public async Task<User> GetSelf() {
+      User self = await m_databaseHelper.GetSelf();
+      if (self == null ) {
+        m_databaseHelper.SetSelf( await m_restHelper.GetUserData(m_loginHelper.Token, m_databaseHelper.ID) );
+        self = await m_databaseHelper.GetSelf();
+      }
+      return self;
     }
   }
 }

@@ -2,7 +2,17 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  xmlns:views="clr-namespace:High10.Views;"
                   prism:ViewModelLocator.AutowireViewModel="True"
                   x:Class="High10.Views.MasterDetailContainerPage">
-
+  <MasterDetailPage.Master>
+    <views:MasterPage />
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <views:MasterDetailNavigationPage >
+      <x:Arguments>
+        <ContentPage />
+      </x:Arguments>
+    </views:MasterDetailNavigationPage>
+  </MasterDetailPage.Detail>
 </MasterDetailPage>

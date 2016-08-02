@@ -30,7 +30,7 @@ namespace High10.ViewModels {
       var token = string.Empty;
       if ( !string.IsNullOrEmpty( token = await m_loginHelper.TryLogin( Username, Password ) ) ) {
         await m_modelHelper.LoadMessagingHistory();
-        await m_navigationService.NavigateToAsync<MessagesPage>( animated: false );
+        await m_navigationService.NavigateToAsync<MasterDetailContainerPage, MasterDetailNavigationPage, MessagesPage>( animated: false );
       }
     }
 
