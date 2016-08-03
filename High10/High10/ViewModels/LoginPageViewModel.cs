@@ -16,7 +16,7 @@ namespace High10.ViewModels {
     IModelHelper m_modelHelper;
     ILoginHelper m_loginHelper;
 
-    public LoginPageViewModel( INavigationService navigationService, ILoginHelper loginHelper, ModelHelper modelHelper ) {
+    public LoginPageViewModel( INavigationService navigationService, ILoginHelper loginHelper, IModelHelper modelHelper ) {
       m_navigationService = navigationService;
       m_loginHelper = loginHelper;
       m_modelHelper = modelHelper;

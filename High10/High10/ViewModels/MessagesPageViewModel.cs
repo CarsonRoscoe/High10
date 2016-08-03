@@ -6,12 +6,13 @@ using System.Linq;
 using High10.DataProvider;
 using System.Collections.ObjectModel;
 using Prism.Navigation;
+using High10.Interfaces;
 
 namespace High10.ViewModels {
   public class MessagesPageViewModel : ActionBarBasePageViewModel, INavigationAware {
-    ModelHelper m_modelHelper;
+    IModelHelper m_modelHelper;
 
-    public MessagesPageViewModel( ModelHelper modelHelper ) : base() {
+    public MessagesPageViewModel( IModelHelper modelHelper ) : base() {
       m_modelHelper = modelHelper;
       MessageHistoryViewModels = new ObservableCollection<MessageHistoryViewModel>();
     }

@@ -22,12 +22,17 @@ namespace High10 {
       Container.RegisterType<ILoginHelper, LoginHelper>();
       Container.RegisterType<IRestHelper, RestHelper>();
       Container.RegisterType<IDatabaseHelper, DatabaseHelper>();
-      Container.RegisterInstance( typeof( ModelHelper ), new ModelHelper( Container.Resolve<IRestHelper>(), Container.Resolve<IDatabaseHelper>(), Container.Resolve<ILoginHelper>() ) );
+      Container.RegisterInstance( typeof( IModelHelper ), new ModelHelper( Container.Resolve<IRestHelper>(), Container.Resolve<IDatabaseHelper>(), Container.Resolve<ILoginHelper>() ) );
 
       Container.RegisterTypeForNavigation<MasterDetailContainerPage>();
       Container.RegisterTypeForNavigation<MessagesPage>();
       Container.RegisterTypeForNavigation<LoginPage>();
       Container.RegisterTypeForNavigation<MasterDetailNavigationPage>();
+      Container.RegisterTypeForNavigation<ContactsPage>();
+      Container.RegisterTypeForNavigation<TimelinePage>();
+      Container.RegisterTypeForNavigation<CameraPage>();
+      Container.RegisterTypeForNavigation<SettingsPage>();
+      Container.RegisterTypeForNavigation<AboutPage>();
     }
 
     public static class Colors {
@@ -36,6 +41,7 @@ namespace High10 {
       public static Color DarkGreen { get { return GetColor(); } }
       public static Color MediumGreen { get { return GetColor(); } }
       public static Color LightGreen { get { return GetColor(); } }
+      public static Color LightOrange { get { return GetColor(); } }
       public static Color MediumOrange { get { return GetColor(); } }
       public static Color MediumPink { get { return GetColor(); } }
       public static Color DarkGray { get { return GetColor(); } }
@@ -46,7 +52,7 @@ namespace High10 {
           LoadColors();
         }
         Color colorResult = Color.Default;
-        m_colors.TryGetValue( string.Format("Color{0}", caller), out colorResult );
+        m_colors.TryGetValue( string.Format( "Color{0}", caller ), out colorResult );
         return colorResult;
       }
 
@@ -60,7 +66,7 @@ namespace High10 {
           }
         }
         foreach ( var property in typeof( Colors ).GetRuntimeProperties() ) {
-          if ( !m_colors.ContainsKey( string.Format("Color{0}", property.Name ) ) ) {
+          if ( !m_colors.ContainsKey( string.Format( "Color{0}", property.Name ) ) ) {
             throw new Exception( string.Format( "Color {0} not found in Resources", property.Name ) );
           }
         }

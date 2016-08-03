@@ -10,9 +10,10 @@
       <Color x:Key="ColorLightText">#FFFFFF</Color>
 
       <Color x:Key="ColorDarkGreen">#005B29</Color>
-      <Color x:Key="ColorMediumGreen">#007E39</Color>
       <Color x:Key="ColorLightGreen">#00FA12</Color>
+      <Color x:Key="ColorLightOrange">#FFC000</Color>
 
+      <Color x:Key="ColorMediumGreen">#007E39</Color>
       <Color x:Key="ColorMediumOrange">#FF7400</Color>
       <Color x:Key="ColorMediumPink">#FF0090</Color>
 

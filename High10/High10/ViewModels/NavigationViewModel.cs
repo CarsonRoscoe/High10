@@ -6,7 +6,7 @@ using System.Linq;
 using Xamarin.Forms;
 
 namespace High10.ViewModels {
-  public enum NavigationPageType { Messages, Contacts, Stories, Camera, Settings, About }
+  public enum NavigationPageType { Messages, Contacts, Timeline, Camera, Settings, About }
 
   public class NavigationViewModel : BindableBase {
     public NavigationViewModel(NavigationPageType navigationPageType) {
@@ -22,8 +22,8 @@ namespace High10.ViewModels {
             return "Messages";
           case NavigationPageType.Camera:
             return "Camera";
-          case NavigationPageType.Stories:
-            return "Stories";
+          case NavigationPageType.Timeline:
+            return "Timelines";
           case NavigationPageType.Contacts:
             return "Contacts";
           case NavigationPageType.Settings:
@@ -47,7 +47,7 @@ namespace High10.ViewModels {
             case NavigationPageType.Camera:
               _imageSource = App.Images.ImageCameraWhite;
               break;
-            case NavigationPageType.Stories:
+            case NavigationPageType.Timeline:
               _imageSource = App.Images.ImageTimelineWhite;
               break;
             case NavigationPageType.Contacts:
