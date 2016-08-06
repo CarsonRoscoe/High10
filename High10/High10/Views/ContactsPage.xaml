@@ -6,23 +6,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="High10.Views.ContactsPage">
   <StackLayout Spacing="0" BackgroundColor="White">
-    <!--Navigation Bar-->
-    <Grid HeightRequest="50" MinimumHeightRequest="50" BackgroundColor="{StaticResource ColorMediumGreen}" >
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="50" />
-        <ColumnDefinition />
-        <ColumnDefinition Width="50" />
-      </Grid.ColumnDefinitions>
-      <Grid BackgroundColor="{StaticResource ColorDarkGreen}" Padding="8" Grid.Column="0">
-        <customcontrols:ImageButton ImageSource="{StaticResource ImageNavigationWhite}" Command="{Binding ToggleMasterCommand}" />
-      </Grid>
-      <Image Grid.Column="1" Source="{StaticResource ImageLogoSmall}"/>
-      <Frame BackgroundColor="Transparent" Padding="8" Grid.Column="2">
-        <Image Source="{StaticResource ImageCameraWhite}"/>
-      </Frame>
-    </Grid>
-
-    <!--Content-->
+    <customcontrols:NavigationBar />
     <SearchBar Placeholder="Search Friends" Text="{Binding SearchBarText}" SearchCommand="{Binding SearchListCommand}" VerticalOptions="Center" BackgroundColor="{StaticResource ColorLightGray}" />
     <Grid>
       <Button Grid.Column="0" Text="All Contacts" Command="{Binding }" BackgroundColor="{StaticResource ColorMediumOrange}" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />

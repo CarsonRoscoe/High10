@@ -46,9 +46,15 @@
     <Compile Include="BusinessModels\User.cs" />
     <Compile Include="CustomControls\CustomImageSource.cs" />
     <Compile Include="CustomControls\ImageButton.cs" />
-    <Compile Include="CustomControls\LandingPageLoggedOut.cs" />
-    <Compile Include="CustomControls\LandingPageLogIn.cs" />
-    <Compile Include="CustomControls\LandingPageRegister.cs" />
+    <Compile Include="CustomControls\LandingPageLoggedOut.xaml.cs">
+      <DependentUpon>LandingPageLoggedOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\LandingPageLogIn.xaml.cs">
+      <DependentUpon>LandingPageLogIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\LandingPageRegister.xaml.cs">
+      <DependentUpon>LandingPageRegister.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataProvider\DatabaseHelper.cs" />
     <Compile Include="DataProvider\LoginHelper.cs" />
     <Compile Include="DataProvider\ModelHelper.cs" />
@@ -242,6 +248,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomControls\LandingPageLogIn.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomControls\LandingPageRegister.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomControls\LandingPageLoggedOut.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

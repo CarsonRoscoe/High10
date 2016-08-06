@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="High10.CustomControls.LandingPageLoggedOut">
+  <Grid.RowDefinitions>
+    <RowDefinition Height="7*" />
+    <RowDefinition Height="3*" />
+  </Grid.RowDefinitions>
+
+  <Button Grid.Column="0" Grid.Row="0" FontSize="Large" TextColor="{StaticResource ColorLightText}" Text="Log In" BackgroundColor="{StaticResource ColorMediumOrange}" 
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="Center" Command="{Binding ToLogInPageButtonCommand}" />
+  <Button Grid.Column="0" Grid.Row="1" FontSize="Large" TextColor="{StaticResource ColorMediumGreen}" Text="Don't have High10?" BackgroundColor="Transparent"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="Center" Command="{Binding ToRegisterPageButtonCommand}" />
+</Grid>

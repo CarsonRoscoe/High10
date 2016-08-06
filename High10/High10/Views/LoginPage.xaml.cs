@@ -7,9 +7,9 @@ namespace High10.Views {
   public enum LoginPageType { LoggedOut, LogIn, Register }
 
   public partial class LoginPage : ContentPage {
-    LandingPageLoggedOut _loggedOutGrid;
-    LandingPageLogIn _logInGrid;
-    LandingPageRegister _registerGrid;
+    private static readonly int LeftPanelXOffset = 2000;
+    private static readonly int CenterPanelXOffset = 0;
+    private static readonly int RightPanelXOffset = -LeftPanelXOffset;
 
     public static readonly BindableProperty LoginPageTypeProperty = BindableProperty.Create( nameof( LoginPageType ), typeof( LoginPageType ), typeof( LoginPage ), LoginPageType.LoggedOut );
     public LoginPageType LoginPageType {
@@ -20,15 +20,8 @@ namespace High10.Views {
     public LoginPage() {
       InitializeComponent();
 
-      _loggedOutGrid = new LandingPageLoggedOut( BindingContext );
-      _logInGrid = new LandingPageLogIn( BindingContext );
-      _registerGrid = new LandingPageRegister( BindingContext );
-      _contentGrid.Children.Add(_loggedOutGrid, 0, 1);
-      _contentGrid.Children.Add(_logInGrid, 0, 1);
-      _contentGrid.Children.Add(_registerGrid, 0, 1);
-
-      _registerGrid.TranslateTo( -2000, 0, 0 );
-      _logInGrid.TranslateTo( 2000, 0, 0 );
+      LandingPageRegister.TranslateTo( RightPanelXOffset, 0, 0 );
+      LandingPageLogIn.TranslateTo( LeftPanelXOffset, 0, 0 );
 
       SetBinding( LoginPageTypeProperty, new Binding( nameof( LoginPageType ), BindingMode.TwoWay ) );
     }
@@ -38,19 +31,13 @@ namespace High10.Views {
       if ( propertyName == nameof( LoginPageType ) ) {
         switch ( LoginPageType ) {
           case LoginPageType.LoggedOut:
-            _registerGrid.TranslateTo( -2000, 0, 250 );
-            _loggedOutGrid.TranslateTo( 0, 0, 250 );
-            _logInGrid.TranslateTo( 2000, 0, 250 );
+            AnimateControls(CenterPanelXOffset);
             break;
           case LoginPageType.LogIn:
-            _registerGrid.TranslateTo( -4000, 0, 250 );
-            _loggedOutGrid.TranslateTo( -2000, 0, 250 );
-            _logInGrid.TranslateTo( 0, 0, 250 );
+            AnimateControls( RightPanelXOffset );
             break;
           case LoginPageType.Register:
-            _registerGrid.TranslateTo( 0, 0, 250 );
-            _loggedOutGrid.TranslateTo( 2000, 0, 250 );
-            _logInGrid.TranslateTo( 4000, 0, 250 );
+            AnimateControls( LeftPanelXOffset );
             break;
         }
       }
@@ -64,6 +51,14 @@ namespace High10.Views {
       else {
         return base.OnBackButtonPressed();
       }
+    }
+
+
+    private void AnimateControls(int xOffset) {
+      uint animationTime = 250;
+      LandingPageRegister.TranslateTo( -2000 + xOffset, 0, animationTime );
+      LandingPageLoggedOut.TranslateTo( 0 + xOffset, 0, animationTime );
+      LandingPageLogIn.TranslateTo( 2000 + xOffset, 0, animationTime );
     }
   }
 }

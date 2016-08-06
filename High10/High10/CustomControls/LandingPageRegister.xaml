@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="High10.CustomControls.LandingPageRegister" Margin="8">
+  <Label  Grid.Column="0" Grid.Row="0" Text="Username" TextColor="{StaticResource ColorDarkText}" HorizontalTextAlignment="Start" VerticalOptions="End" />
+  <Entry  Grid.Column="0" Grid.Row="1" x:Name="UsernameEntry" TextColor="{StaticResource ColorDarkText}" BackgroundColor="{StaticResource ColorLightGray}" HorizontalTextAlignment="Start"  />
+  <Label  Grid.Column="0" Grid.Row="2" Text="Password" TextColor="{StaticResource ColorDarkText}" HorizontalTextAlignment="Start" VerticalOptions="End" />
+  <Entry  Grid.Column="0" Grid.Row="3" x:Name="PasswordEntry" TextColor="{StaticResource ColorDarkText}" BackgroundColor="{StaticResource ColorLightGray}" HorizontalTextAlignment="Start"  />
+  <Button Grid.Column="0" Grid.Row="4" TextColor="{StaticResource ColorLightText}" BackgroundColor="{StaticResource ColorMediumOrange}" Text="Register" Command="{Binding RegisterButtonCommand}" />
+</Grid>
