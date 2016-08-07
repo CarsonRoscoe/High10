@@ -65,6 +65,7 @@
     <Compile Include="DataProvider\LoginHelper.cs" />
     <Compile Include="DataProvider\ModelHelper.cs" />
     <Compile Include="DataProvider\RestHelper.cs" />
+    <Compile Include="DataStructures\SearchableObservableCollection.cs" />
     <Compile Include="ExtensionMethods\PrismExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\RandomExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Interfaces\ILoginHelper.cs" />
     <Compile Include="Interfaces\IModelHelper.cs" />
     <Compile Include="Interfaces\IRestHelper.cs" />
+    <Compile Include="Interfaces\ISearchable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewCells\ContactCell.xaml.cs">
       <DependentUpon>ContactCell.xaml</DependentUpon>

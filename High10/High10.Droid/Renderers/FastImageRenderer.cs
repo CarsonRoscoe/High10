@@ -5,6 +5,7 @@ using High10.CustomControls;
 using High10.Droid.Controls;
 using High10.ImageLoaders;
 
+//Written by George Cook
 [assembly: ExportRenderer (typeof(FastImage), typeof(FastImageRenderer))]
 namespace High10.Droid.Controls
 {
@@ -15,9 +16,6 @@ namespace High10.Droid.Controls
 		protected override void OnElementChanged (ElementChangedEventArgs<Image> e)
 		{
 			base.OnElementChanged (e);
-			//			if (e.OldElement != null) {
-			//				((FastImage)e.OldElement).ImageProvider = null;
-			//			}
 			if (e.NewElement != null) {
 				var fastImage = e.NewElement as FastImage;
 				_imageLoader = ImageLoaderCache.GetImageLoader (this);

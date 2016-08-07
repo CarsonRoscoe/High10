@@ -7,6 +7,7 @@ using High10.Droid.CustomRenderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
+//Written by George Cook
 [assembly: ExportRenderer( typeof( ImageButton ), typeof( ImageButtonRenderer ) )]
 namespace High10.Droid.CustomRenderers {
 

@@ -7,16 +7,15 @@ using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using Prism.Navigation;
 using High10.Interfaces;
+using High10.DataStructures;
 
 namespace High10.ViewModels {
   public class ContactsPageViewModel : ActionBarBasePageViewModel, INavigationAware {
     private IModelHelper m_modelHelper;
-    private ObservableCollection<ContactViewModel> m_allContactViewModels;
 
     public ContactsPageViewModel(IModelHelper modelHelper) {
       m_modelHelper = modelHelper;
-      SearchListCommand = new Command( OnSearchList );
-      ContactViewModels = new ObservableCollection<ContactViewModel>();
+      ContactViewModels = new SearchableObservableCollection();
     }
 
     public void OnNavigatedTo( NavigationParameters parameters ) {
@@ -28,24 +27,18 @@ namespace High10.ViewModels {
       foreach(var user in await m_modelHelper.GetAllFriends()) {
         ContactViewModels.Add( new ContactViewModel( user ) );
       }
-      m_allContactViewModels = new ObservableCollection<ContactViewModel>(ContactViewModels);
     }
 
-    private ObservableCollection<ContactViewModel> _contactViewModels;
-    public ObservableCollection<ContactViewModel> ContactViewModels {
+    private SearchableObservableCollection _contactViewModels;
+    public SearchableObservableCollection ContactViewModels {
       get { return _contactViewModels; }
       set { SetProperty( ref _contactViewModels, value ); }
     }
 
-    private string _searchBarText;
     public string SearchBarText {
-      get { return _searchBarText; }
-      set { SetProperty( ref _searchBarText, value ); }
-    }
-
-    public Command SearchListCommand { get; private set; }
-    public void OnSearchList() {
-
+      set {
+        ContactViewModels.Search( value ?? string.Empty );
+      }
     }
 
     public void OnNavigatedFrom( NavigationParameters parameters ) {}

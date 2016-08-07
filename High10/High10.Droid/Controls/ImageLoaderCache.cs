@@ -1,6 +1,7 @@
 ﻿using System;
 using High10.ImageLoaders;
 
+//Written by George Cook
 namespace High10.Droid.Controls {
   /**
 	 * caches available image loaders.

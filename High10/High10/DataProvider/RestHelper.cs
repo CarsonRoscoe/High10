@@ -201,7 +201,7 @@ namespace High10.DataProvider {
         Username = RandomString( 6 ),
         ID = m_random.NextLong(),
         Points = m_random.Next( 0, 200000 ),
-        Base64ProfilePicture = image
+        Base64ProfilePicture = m_random.Next(3) % 2 == 0 ? image : null
       };
     }
 

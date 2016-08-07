@@ -5,6 +5,7 @@ using System.Reflection;
 using Xamarin.Forms;
 using High10.CustomControls;
 
+//Written by George Cook
 namespace High10.Droid.Controls
 {
 	/// <summary>

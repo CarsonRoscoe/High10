@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using High10.Interfaces;
 
 namespace High10.BusinessModels {
   public class User {

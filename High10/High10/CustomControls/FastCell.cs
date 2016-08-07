@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
+//Written by George Cook
 namespace High10.CustomControls {
   /*
 	 * a view which can be used as a cell in order to get optimum performance 

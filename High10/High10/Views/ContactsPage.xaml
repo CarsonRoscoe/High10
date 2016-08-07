@@ -8,7 +8,7 @@
              x:Class="High10.Views.ContactsPage">
   <StackLayout Spacing="0" BackgroundColor="White">
     <customcontrols:NavigationBar />
-    <SearchBar Placeholder="Search Friends" Text="{Binding SearchBarText}" SearchCommand="{Binding SearchListCommand}" VerticalOptions="Center" BackgroundColor="{StaticResource ColorLightGray}" />
+    <SearchBar x:Name="SearchBar" Placeholder="Search Friends" Text="{Binding SearchBarText}" VerticalOptions="Center" BackgroundColor="{StaticResource ColorLightGray}" />
     <Grid>
       <Button Grid.Column="0" Text="All Contacts" Command="{Binding }" BackgroundColor="{StaticResource ColorMediumOrange}" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
       <Button Grid.Column="1" Text="Best Friends" Command="{Binding }" BackgroundColor="{StaticResource ColorMediumOrange}" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />

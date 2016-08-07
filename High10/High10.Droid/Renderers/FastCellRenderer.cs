@@ -9,6 +9,7 @@ using Android.Widget;
 using High10.CustomControls;
 using High10.Droid.Controls;
 
+//Written by George Cook
 [assembly: ExportRenderer (typeof(FastCell), typeof(FastCellRenderer))]
 namespace High10.Droid.Controls
 {

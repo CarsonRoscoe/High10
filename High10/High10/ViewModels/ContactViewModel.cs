@@ -7,9 +7,10 @@ using Xamarin.Forms;
 using High10.BusinessModels;
 using High10.ExtensionMethods;
 using System.Collections.ObjectModel;
+using High10.Interfaces;
 
 namespace High10.ViewModels {
-  public class ContactViewModel {
+  public class ContactViewModel : ISearchable {
     User m_user;
 
     public ContactViewModel( User user ) {
@@ -59,6 +60,13 @@ namespace High10.ViewModels {
     public string Username {
       get {
         return m_user.Username;
+      }
+    }
+
+    public string SearchableValue {
+      get {
+        return Username;
+        ;
       }
     }
   }
