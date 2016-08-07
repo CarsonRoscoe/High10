@@ -136,7 +136,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\FastCellCache.cs" />
+    <Compile Include="Controls\ImageLoaderCache.cs" />
+    <Compile Include="ImageLoaders\FileCache.cs" />
+    <Compile Include="ImageLoaders\ImageLoader.cs" />
+    <Compile Include="ImageLoaders\MemoryCache.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\FastCellRenderer.cs" />
+    <Compile Include="Renderers\FastImageRenderer.cs" />
     <Compile Include="Renderers\ImageButtonRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

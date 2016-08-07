@@ -45,6 +45,9 @@
     <Compile Include="BusinessModels\Picture.cs" />
     <Compile Include="BusinessModels\User.cs" />
     <Compile Include="CustomControls\CustomImageSource.cs" />
+    <Compile Include="CustomControls\FastCell.cs" />
+    <Compile Include="CustomControls\FastImage.cs" />
+    <Compile Include="CustomControls\IFastCellCache.cs" />
     <Compile Include="CustomControls\ImageButton.cs" />
     <Compile Include="CustomControls\LandingPageLoggedOut.xaml.cs">
       <DependentUpon>LandingPageLoggedOut.xaml</DependentUpon>
@@ -54,6 +57,9 @@
     </Compile>
     <Compile Include="CustomControls\LandingPageRegister.xaml.cs">
       <DependentUpon>LandingPageRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\NavigationBar.xaml.cs">
+      <DependentUpon>NavigationBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataProvider\DatabaseHelper.cs" />
     <Compile Include="DataProvider\LoginHelper.cs" />
@@ -68,10 +74,14 @@
     <Compile Include="Interfaces\IModelHelper.cs" />
     <Compile Include="Interfaces\IRestHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewCells\ContactCell.xaml.cs">
+      <DependentUpon>ContactCell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
     <Compile Include="ViewModels\ActionBarBasePageViewModel.cs" />
     <Compile Include="ViewModels\CameraPageViewModel.cs" />
     <Compile Include="ViewModels\ContactsPageViewModel.cs" />
+    <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MasterDetailContainerPageViewModel.cs" />
     <Compile Include="ViewModels\MasterPageViewModel.cs" />
@@ -155,7 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="ViewCells\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -267,6 +276,18 @@
   <ItemGroup>
     <EmbeddedResource Include="CustomControls\LandingPageLoggedOut.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewCells\ContactCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomControls\NavigationBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
