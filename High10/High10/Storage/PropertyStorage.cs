@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using High10.Interfaces;
 using Microsoft.Practices.Unity;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
-[assembly: Dependency( typeof( High10.Storage.PropertyStorage ) )]
+[assembly: Xamarin.Forms.Dependency( typeof( High10.Storage.PropertyStorage ) )]
 namespace High10.Storage {
   public class PropertyStorage : IPropertyStorage {
     public T Get<T>( string key, T defaultValue = default( T ) ) {
